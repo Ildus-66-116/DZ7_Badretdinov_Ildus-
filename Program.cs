@@ -62,6 +62,10 @@ int[,] matrix = new int[size[0], size[1]];
 InputMatrix(matrix);
 PrintMatrix(matrix);
 Console.WriteLine();
-Console.Write("Введите позицию: ");
-int[] sizeNew = Console.ReadLine()!.Split().Select(x => int.Parse(x)).ToArray();
-Console.Write($"Значение: {matrix[sizeNew[0], sizeNew[1]]}");
+Console.Write("Введите столбец: ");
+int i = int.Parse(Console.ReadLine()!); i = i -1;
+Console.Write("Введите строку: ");
+int j = int.Parse(Console.ReadLine()!); j = j -1;
+if(i < size[0] && j < size[1])
+    Console.Write($"Значение: {matrix[i, j]}");
+else Console.Write($"{i = i + 1} {j = j + 1} -> такой позиции нет");
