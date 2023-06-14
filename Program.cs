@@ -85,7 +85,7 @@ void InputMatrix(int[,] matrix)
     for(int i = 0; i < matrix.GetLength(0); i++)
     {
         for(int j = 0; j < matrix.GetLength(1); j++)
-            matrix[i, j] = new Random().Next(1, 21);
+            matrix[i, j] = new Random().Next(1, 11);
     }
 }
 void PrintMatrix(int[,] matrix)
@@ -106,14 +106,13 @@ int[,] matrix = new int[size[0], size[1]];
 InputMatrix(matrix);
 PrintMatrix(matrix);
 Console.WriteLine();
-double [] summa = new double[matrix.GetLength(0)];
-    for(int i = 0; i < matrix.GetLength(0); i++)
+double [] summa = new double[matrix.GetLength(1)];
+    for(int j = 0; j < matrix.GetLength(1); j++)
     {
-        summa[i] = 0;
-        for(int j = 0; j < matrix.GetLength(1); j++)
+        for(int i = 0; i < matrix.GetLength(0); i++)
         {
-            summa[i] = summa[i] + matrix[i, j];
+            summa[j] = summa[j] + matrix[i, j];
         }
     }
-for(int i = 0; i < summa.Length; i++) summa[i] = Math.Round(summa[i] / summa.Length, 2);
+for(int i = 0; i < summa.Length; i++) summa[i] = Math.Round(summa[i] / matrix.GetLength(0), 2);
 Console.WriteLine($"Среднее арифметическое каждого столбца: {string.Join("; ", summa)}");
